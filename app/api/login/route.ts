@@ -3,11 +3,13 @@ import { NextResponse } from 'next/server';
 import { SignJWT } from 'jose';
 
 const SECRET_KEY = new TextEncoder().encode(process.env.SECRET_KEY!);
+const USER_EMAIL = process.env.USER_EMAIL!;
+const USER_PASSWORD = process.env.USER_PASSWORD!;
 
 export async function POST(request: Request) {
   const { email, password } = await request.json();
 
-  if (email === 'user@example.com' && password === 'secret123') {
+  if (email === USER_EMAIL && password === USER_PASSWORD) {
     const token = await new SignJWT({ email })
       .setProtectedHeader({ alg: 'HS256' })
       .setExpirationTime('1h')

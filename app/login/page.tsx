@@ -52,6 +52,13 @@ export default function LoginPage() {
         <button type="submit" style={{ width: '100%' }}>ログイン</button>
       </form>
       {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button
+        type="button"
+        style={{ width: '100%', marginTop: 10 }}
+        onClick={() => router.push('/')}
+      >
+        トップページに戻る
+      </button>
     </main>
   );
 }
