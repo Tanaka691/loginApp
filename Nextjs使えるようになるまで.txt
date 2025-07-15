@@ -1,0 +1,25 @@
+Next.js使えるようになるまで
+
+・Node.jsのダウンロードでpython関連のエラーが出たため、もろもろ再インストールしてみる。→あきらめ。(7/11)
+	(7/15)再挑戦
+	・Docker を用いてnext.js を使えるか。
+	・Dockerを商用に用いる際には有料プランが必要？
+		ひとまずは初めて触るので個人の学習ということで
+	・セキュリティ関連が難しすぎる。
+	・wslを使わずにDockerを使う(Hyper-Vを使う？)
+	
+		Dockerdesktopにて
+		Setting>General
+		Use the WSL bbased engineのチェックを外す
+		Apply
+		
+		Win＋Rでoptionalfeatures.exeと入力Hyper-Vと仮想マシンプラットフォームにチェック
+		再起動
+		
+		Powershellにて
+		docker build -t my-next-app .    (','を忘れずに)
+		docker run -p 3000:3000 -v ${PWD}:/app my-next-app
+		npm run dev    (うまくいかない場合は npm.cmd run dev )
+
+		
+これでnext.jsを使って開発できる。

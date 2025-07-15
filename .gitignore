@@ -1,0 +1,19 @@
+# node_modules はGitに入れない（超重要）
+node_modules/
+
+# ビルド成果物を除外（next build の出力）
+.next/
+out/
+
+# ログファイル
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 環境変数ファイル（機密情報を含む）
+.env*
+!.env.example
+
+# OSごとの不要ファイル
+.DS_Store
+Thumbs.db
