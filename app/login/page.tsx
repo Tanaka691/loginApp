@@ -18,13 +18,15 @@ export default function LoginPage() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
-    // レスポンスのチェック
+
     console.log('Login response:', res);
 
+    const data = await res.json().catch(() => ({}));
     if (res.ok) {
+      // usernameを保存（なければemail）
+      sessionStorage.setItem('username', data.username ?? email);
       router.push('/dashboard');
     } else {
-      const data = await res.json();
       setError(data.message || 'ログインに失敗しました');
     }
   };
