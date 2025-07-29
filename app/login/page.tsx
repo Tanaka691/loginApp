@@ -19,8 +19,6 @@ export default function LoginPage() {
       body: JSON.stringify({ email, password }),
     });
 
-    console.log('Login response:', res);
-
     const data = await res.json().catch(() => ({}));
     if (res.ok) {
       // usernameを保存（なければemail）
